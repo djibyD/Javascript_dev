@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Conversion</title>
+	</head>
+	<body>
+		<script> 
+			var numberInLetter = ['un', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf'];
+			var dizaines = ['onze', 'douze', 'treize', 'quatorze', 'quinze', 'seize'];
+			var vingtaines = ['dix', 'vingt', 'trente', 'quarante', 'cinquante', 'soxante', 'soxante-dix',
+				'quatre-vingt', 'quatre-vingt-dix'];
+			console.log(numberInLetter);
+			var numberToConvertInLetter  = prompt('Please enter a number between 0 and 99 ! '); 
+			function convertNumberToLetter(number){
+				var numberAsInteger = parseInt(number);
+				if((Math.floor(numberAsInteger/10)) == 0){
+					switch(numberAsInteger) {
+						case 1 : return numberInLetter[0];
+						case 2 : return numberInLetter[1];
+						case 3 : return numberInLetter[2];
+						case 4 : return numberInLetter[3];
+						case 5 : return numberInLetter[4];
+						case 6 : return numberInLetter[5];
+						case 7 : return numberInLetter[6];
+						case 8 : return numberInLetter[7];
+						case 9 : return numberInLetter[8];
+						default : return 'zero';
+					}
+				} else {
+					alert(numberToConvertInLetter + " is out of the range.");
+				}
+			}
+			alert(numberToConvertInLetter + " in letters : " +  convertNumberToLetter(numberToConvertInLetter));
+
+		</script>
+	</body>
+</html>
