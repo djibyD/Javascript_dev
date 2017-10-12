@@ -6,7 +6,7 @@
 	<body>
 		<script> 
 			var numberInLetter = ['un', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf'];
-			var dizaines = ['onze', 'douze', 'treize', 'quatorze', 'quinze', 'seize'];
+			var dizaines = ['onze', 'douze', 'treize', 'quatorze', 'quinze', 'seize', 'dix-sept', 'dix-huit', 'dix-neuf'];
 			var vingtaines = ['dix', 'vingt', 'trente', 'quarante', 'cinquante', 'soxante', 'soxante-dix',
 				'quatre-vingt', 'quatre-vingt-dix'];
 			console.log(numberInLetter);
@@ -26,7 +26,44 @@
 						case 9 : return numberInLetter[8];
 						default : return 'zero';
 					}
-				} else {
+				} else if((Math.floor(numberAsInteger/100)) == 0){
+					if((Math.floor(numberAsInteger%10))== 0){
+						//Nombre a deux chiffre avec deuxieme chiffre egale a zero
+						switch(Math.floor(numberAsInteger/10)) {
+						case 1 : return vingtaines[0];
+						case 2 : return vingtaines[1];
+						case 3 : return vingtaines[2];
+						case 4 : return vingtaines[3];
+						case 5 : return vingtaines[4];
+						case 6 : return vingtaines[5];
+						case 7 : return vingtaines[6];
+						case 8 : return vingtaines[7];
+						case 9 : return vingtaines[8];
+						default : return 'zero';
+					}
+					}else {
+					
+						//Nombre a deux chiffre sous la forme : <premier-chiffre><deuxieme-chiffre different de 0>
+						if((Math.floor(numberAsInteger/10))== 1){
+						//Nombre a deux chiffre avec deuxieme chiffre egale a zero
+						switch(Math.floor(numberAsInteger%10)) {
+						case 1 : return dizaines[0];
+						case 2 : return dizaines[1];
+						case 3 : return dizaines[2];
+						case 4 : return dizaines[3];
+						case 5 : return dizaines[4];
+						case 6 : return dizaines[5];
+						case 7 : return dizaines[6];
+						case 8 : return dizaines[7];
+						case 9 : return dizaines[8];
+						default : return 'zero';
+					}
+					}
+					}
+					
+				}
+
+				else {
 					alert(numberToConvertInLetter + " is out of the range.");
 				}
 			}
