@@ -4,69 +4,108 @@
 		<title>Conversion</title>
 	</head>
 	<body>
-		<script> 
-			var numberInLetter = ['un', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf'];
-			var dizaines = ['onze', 'douze', 'treize', 'quatorze', 'quinze', 'seize', 'dix-sept', 'dix-huit', 'dix-neuf'];
-			var vingtaines = ['dix', 'vingt', 'trente', 'quarante', 'cinquante', 'soxante', 'soxante-dix',
+		<script>
+			var zero_a_neuf = ['un', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf'];
+			var dix_a_dix_neuf = ['onze', 'douze', 'treize', 'quatorze', 'quinze', 'seize', 'dix-sept', 'dix-huit', 'dix-neuf'];
+			var multiple_de_dix = ['dix', 'vingt', 'trente', 'quarante', 'cinquante', 'soxante', 'soxante-dix',
 				'quatre-vingt', 'quatre-vingt-dix'];
-			console.log(numberInLetter);
-			var numberToConvertInLetter  = prompt('Please enter a number between 0 and 99 ! '); 
+			console.log(zero_a_neuf);
+			var numberToConvertInLetter  = prompt('Please enter a number between 0 and 99 ! ');
 			function convertNumberToLetter(number){
 				var numberAsInteger = parseInt(number);
 				if((Math.floor(numberAsInteger/10)) == 0){
 					switch(numberAsInteger) {
-						case 1 : return numberInLetter[0];
-						case 2 : return numberInLetter[1];
-						case 3 : return numberInLetter[2];
-						case 4 : return numberInLetter[3];
-						case 5 : return numberInLetter[4];
-						case 6 : return numberInLetter[5];
-						case 7 : return numberInLetter[6];
-						case 8 : return numberInLetter[7];
-						case 9 : return numberInLetter[8];
+						case 1 : return zero_a_neuf[0];
+						case 2 : return zero_a_neuf[1];
+						case 3 : return zero_a_neuf[2];
+						case 4 : return zero_a_neuf[3];
+						case 5 : return zero_a_neuf[4];
+						case 6 : return zero_a_neuf[5];
+						case 7 : return zero_a_neuf[6];
+						case 8 : return zero_a_neuf[7];
+						case 9 : return zero_a_neuf[8];
 						default : return 'zero';
 					}
-				} else if((Math.floor(numberAsInteger/100)) == 0){
-					if((Math.floor(numberAsInteger%10))== 0){
-						//Nombre a deux chiffre avec deuxieme chiffre egale a zero
-						switch(Math.floor(numberAsInteger/10)) {
-						case 1 : return vingtaines[0];
-						case 2 : return vingtaines[1];
-						case 3 : return vingtaines[2];
-						case 4 : return vingtaines[3];
-						case 5 : return vingtaines[4];
-						case 6 : return vingtaines[5];
-						case 7 : return vingtaines[6];
-						case 8 : return vingtaines[7];
-						case 9 : return vingtaines[8];
-						default : return 'zero';
-					}
-					}else {
-					
-						//Nombre a deux chiffre sous la forme : <premier-chiffre><deuxieme-chiffre different de 0>
-						if((Math.floor(numberAsInteger/10))== 1){
-						//Nombre a deux chiffre avec deuxieme chiffre egale a zero
-						switch(Math.floor(numberAsInteger%10)) {
-						case 1 : return dizaines[0];
-						case 2 : return dizaines[1];
-						case 3 : return dizaines[2];
-						case 4 : return dizaines[3];
-						case 5 : return dizaines[4];
-						case 6 : return dizaines[5];
-						case 7 : return dizaines[6];
-						case 8 : return dizaines[7];
-						case 9 : return dizaines[8];
-						default : return 'zero';
-					}
-					}
-					}
-					
-				}
+				}else { //Not a two digit number
+					if((Math.floor(numberAsInteger/100)) == 0){ //Two digit number
+						if((Math.floor(numberAsInteger/10)) == 1){ // number between 10 and 19(included)
+							switch(Math.floor(numberAsInteger%10)) {
+								case 1 : return dix_a_dix_neuf[0];
+								case 2 : return dix_a_dix_neuf[1];
+								case 3 : return dix_a_dix_neuf[2];
+								case 4 : return dix_a_dix_neuf[3];
+								case 5 : return dix_a_dix_neuf[4];
+								case 6 : return dix_a_dix_neuf[5];
+								case 7 : return dix_a_dix_neuf[6];
+								case 8 : return dix_a_dix_neuf[7];
+								case 9 : return dix_a_dix_neuf[8];
+								default : return 'dix';
+							}
 
-				else {
-					alert(numberToConvertInLetter + " is out of the range.");
+						} else {//number over 20(included)
+							if((Math.floor(numberAsInteger%10)) == 0){ // number as 20, 30, 40 etc
+								switch(Math.floor(numberAsInteger/10)) {
+									case 1 : return multiple_de_dix[0];
+									case 2 : return multiple_de_dix[1];
+									case 3 : return multiple_de_dix[2];
+									case 4 : return multiple_de_dix[3];
+									case 5 : return multiple_de_dix[4];
+									case 6 : return multiple_de_dix[5];
+									case 7 : return multiple_de_dix[6];
+									case 8 : return multiple_de_dix[7];
+									case 9 : return multiple_de_dix[8];
+									default : return 'zero';
+								}
+
+							} else { // number as 21, 22, 32, 54, etc second digit not zero
+								switch(Math.floor(numberAsInteger/10)) {
+									case 2 : return findFirstDigit(Math.floor(numberAsInteger/10), Math.floor(numberAsInteger%10));
+									case 3 : return findFirstDigit(Math.floor(numberAsInteger/10), Math.floor(numberAsInteger%10));
+									case 4 : return findFirstDigit(Math.floor(numberAsInteger/10), Math.floor(numberAsInteger%10));
+									case 5 : return findFirstDigit(Math.floor(numberAsInteger/10), Math.floor(numberAsInteger%10));
+									case 6 : return findFirstDigit(Math.floor(numberAsInteger/10), Math.floor(numberAsInteger%10));
+									case 7 : return findFirstDigit(Math.floor(numberAsInteger/10), Math.floor(numberAsInteger%10));
+									case 8 : return findFirstDigit(Math.floor(numberAsInteger/10), Math.floor(numberAsInteger%10));
+									case 9 : return findFirstDigit(Math.floor(numberAsInteger/10), Math.floor(numberAsInteger%10));
+									default : return 'zero';
+								}
+							}
+						}
+					}
+				}
+			}// end numberToConvertInLetter
+
+			//Function findFirstDigit
+			function findFirstDigit(firstDigit, secondDigit){
+				switch(firstDigit) {
+					case 2 : return multiple_de_dix[1] + " et " + findSecondDigit(secondDigit);
+					case 3 : return multiple_de_dix[2] + " et " + findSecondDigit(secondDigit);
+					case 4 : return multiple_de_dix[3] + " et " + findSecondDigit(secondDigit);
+					case 5 : return multiple_de_dix[4] + " et " + findSecondDigit(secondDigit);
+					case 6 : return multiple_de_dix[5] + " et " + findSecondDigit(secondDigit);
+					case 7 : return multiple_de_dix[6] + " et " + findSecondDigit(secondDigit);
+					case 8 : return multiple_de_dix[7] + " et " + findSecondDigit(secondDigit);
+					case 9 : return multiple_de_dix[8] + " et " + findSecondDigit(secondDigit);
+					default : return 'zero';
+				}
+			} // end findFirstDigit
+
+			//Function findSecondDigit
+			function findSecondDigit(secondDigit){
+				switch(secondDigit) {
+					case 1 : return zero_a_neuf[0];
+					case 2 : return zero_a_neuf[1];
+					case 3 : return zero_a_neuf[2];
+					case 4 : return zero_a_neuf[3];
+					case 5 : return zero_a_neuf[4];
+					case 6 : return zero_a_neuf[5];
+					case 7 : return zero_a_neuf[6];
+					case 8 : return zero_a_neuf[7];
+					case 9 : return zero_a_neuf[8];
+					default : return 'zero';
 				}
 			}
+
 			alert(numberToConvertInLetter + " in letters : " +  convertNumberToLetter(numberToConvertInLetter));
 
 		</script>
