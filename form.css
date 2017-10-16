@@ -8,7 +8,7 @@ body {
     padding: 3px 0px;
     width: 200px;
     min-height: 1px;
-    text-align: left;
+    text-align: right;
 }
 
 input {
@@ -23,10 +23,24 @@ input:focus {
 	box-shadow: 0 0 8px rgba(82, 168, 236, 0.5);
 }
 
-<<<<<<< HEAD
-.error {
-  color: red;
-=======
+.correct {
+	border-color: rgba(68, 191, 68, 0.75);
+}
+
+.correct:focus {
+	border-color: rgba(68, 191, 68, 0.75);
+	box-shadow: 0 0 8px rgba(68, 191, 68, 0.5);
+}
+
+.incorrect {
+	border-color: rgba(191, 68, 68, 0.75);
+}
+
+.incorrect:focus {
+	border-color: rgba(191, 68, 68, 0.75);
+	box-shadow: 0 0 8px rgba(191, 68, 68, 0.5);
+}
+
 .tooltip {
 	display: inline-block;
 	margin-left: 20px;
@@ -34,5 +48,4 @@ input:focus {
 	border: 1px solid #555;
 	background-color: #CCC;
 	border-radius: 4px;
->>>>>>> 029d184a940f4d11cf1f3bdb48c1c5421bef244c
 }
