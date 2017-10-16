@@ -7,13 +7,19 @@
   </head>
   <body>
         <form id="idForm">
-          <spanc class="form_col">Sexe : </span>
+          <span class="form_col">Sexe : </span>
           <label><input type="radio" name="sexe" value="male" />Male</label>
           <label><input type="radio" name="sexe" value="female" />Female</label>
+		  <span class="tooltip" >You have to choose a gender</span>
           <br /><br />
           <label class="form_col" for="nom">Nom : </label>
+<<<<<<< HEAD
           <input type="text" name="nom" value="Bonjour"  />
           <span class="error" id="errorNom" hidden="true">The nom field is mandatory</span>
+=======
+          <input id="name" type="text" name="nom" value=""  />
+		  <span class="tooltip" >You have to give a name</span>
+>>>>>>> 029d184a940f4d11cf1f3bdb48c1c5421bef244c
           <br /><br />
           <label class="form_col" for="prenom">Prenom : </label>
           <input type="text" name="prenom" value=""  />
@@ -33,17 +39,23 @@
           <label class="form_col" for="pays">Pays : </label>
           <select class="" name="pays">
             <option value="" selected>Pease select a country from the list</option>
-            <option value="" >Senegal</option>
-            <option value="">France</option>
-            <option value="">USA</option>
-            <option value="">UK</option>
+            <option value="senegal">Senegal</option>
+            <option value="france">France</option>
+            <option value="usa">USA</option>
+            <option value="uk">UK</option>
           </select>
           <br /><br />
           <label class="form_col" for="recepEmail">Would you like to receive emails from us : </label>
           <input type="checkbox" name="recepEmail" value=""  /> <br /> <br />
           <input type="submit" name="valider" value="Valider" onclick="validerName();">
         </form>
+<<<<<<< HEAD
         <script type="text/javascript" src="inscription.js">
+=======
+		
+		<script src="inscription.js">
+		</script>
+>>>>>>> 029d184a940f4d11cf1f3bdb48c1c5421bef244c
 
         </script>
   </body>

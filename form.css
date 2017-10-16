@@ -23,6 +23,16 @@ input:focus {
 	box-shadow: 0 0 8px rgba(82, 168, 236, 0.5);
 }
 
+<<<<<<< HEAD
 .error {
   color: red;
+=======
+.tooltip {
+	display: inline-block;
+	margin-left: 20px;
+	padding: 2px 4px;
+	border: 1px solid #555;
+	background-color: #CCC;
+	border-radius: 4px;
+>>>>>>> 029d184a940f4d11cf1f3bdb48c1c5421bef244c
 }
