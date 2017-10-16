@@ -22,3 +22,7 @@ input:focus {
 	border-color: rgba(82, 168, 236, 0.75);
 	box-shadow: 0 0 8px rgba(82, 168, 236, 0.5);
 }
+
+.error {
+  color: red;
+}

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="" content="" charset="utf-8">
     <link rel="stylesheet" href="form.css">
     <title>Inscription Form</title>
   </head>
@@ -11,7 +12,8 @@
           <label><input type="radio" name="sexe" value="female" />Female</label>
           <br /><br />
           <label class="form_col" for="nom">Nom : </label>
-          <input type="text" name="nom" value=""  />
+          <input type="text" name="nom" value="Bonjour"  />
+          <span class="error" id="errorNom" hidden="true">The nom field is mandatory</span>
           <br /><br />
           <label class="form_col" for="prenom">Prenom : </label>
           <input type="text" name="prenom" value=""  />
@@ -38,8 +40,11 @@
           </select>
           <br /><br />
           <label class="form_col" for="recepEmail">Would you like to receive emails from us : </label>
-          <input type="checkbox" name="recepEmail" value=""  />
+          <input type="checkbox" name="recepEmail" value=""  /> <br /> <br />
+          <input type="submit" name="valider" value="Valider" onclick="validerName();">
         </form>
+        <script type="text/javascript" src="inscription.js">
 
+        </script>
   </body>
 </html>
