@@ -9,7 +9,7 @@ function desactivateFields(){
 	}
 }
 
-//get the tooltips elements
+ //get the tooltips elements
 function getToolTip(elements){
 
 	while(element = elements.nextSibling){
@@ -147,17 +147,17 @@ check['pays'] = function(){
 
 //Setting the events up
 (function (){
-  var myForm = document.getElementById('myForm'),
+  var myForm = document.getElementById('idForm'),
   inputs = document.querySelectorAll('input[type=texte], input[type=password]'),
   inputsLength = inputs.length;
 
   for (var i = 0; i < inputsLength; i++) {
-    inputs[i].addEventListener('keyup', function(e){
+    /* inputs[i].addEventListener('keyup', function(e){
       check[e.target.name](e.target.id);
-    });
+    }); */
   }
 
-  myForm.addEventListener('submit', function(e){
+  /* myForm.addEventListener('submit', function(e){
     var result = true;
     for(var i in check){
       result = check[i](i) && result;
@@ -166,7 +166,7 @@ check['pays'] = function(){
       alert('The form is correct');
     }
     e.preventDefault();
-  });
+  }); */
 })();
 
 desactivateFields();
